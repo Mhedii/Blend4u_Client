@@ -1,0 +1,9 @@
+.mainRegister{
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+.input-field{
+    margin: 3px;
+    text-align: center;
+}
