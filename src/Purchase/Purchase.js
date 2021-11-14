@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import "./Booking";
+// import "./purchasing";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router";
 
 
-const Booking = () => {
+const Purchase = () => {
     const { serviceId } = useParams();
     const [service, setService] = useState({});
 
 
-    const email = sessionStorage.getItem("displayName");
+    const email = sessionStorage.getItem("email");
     useEffect(() => {
         fetch(`http://localhost:5000/singleOrder/${serviceId}`)
             .then((res) => res.json())
@@ -49,23 +49,23 @@ const Booking = () => {
                         <div className="details-img">
                             <img className="w-75" src={service?.image} alt="" />
                         </div>
-                        <h2>{service?.name}</h2>
                         <p className="fs-5">{service?.description}</p>
-                        <h1> price: {service?.price} $</h1>
-                        <h1 className="text-danger"> price: {service?.model}</h1>
+                        <h4> Brand: {service?.brand} </h4>
+                        <h4> model: {service?.model} </h4>
+                        <h4 className="text-danger"> price: {service?.price}</h4>
                     </div>
                     <div className="col-md-6">
 
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <input
                                 {...register("brand")}
-                                placeholder="Bran"
+                                // placeholder="Brand"
                                 defaultValue={service?.brand}
                                 className="p-2 m-2 w-100"
                             />
                             <input
                                 {...register("model")}
-                                placeholder="Model"
+                                // placeholder="Model"
                                 defaultValue={service?.model}
                                 className="p-2 m-2 w-100"
                             />
@@ -80,7 +80,7 @@ const Booking = () => {
                             <input
                                 {...register("comments")}
                                 placeholder="comments"
-                                className="p-2 m-2"
+                                // className="p-2 m-2"
                                 className="p-2 m-2 w-100"
                             />
                             <br />
@@ -88,14 +88,14 @@ const Booking = () => {
                             <input
                                 {...register("price", { required: true })}
                                 defaultValue={service?.price}
-                                className="p-2 m-2"
+                                // className="p-2 m-2"
                                 className="p-2 m-2 w-100"
                             />
                             <br />
                             <input
                                 {...register("image", { required: true })}
                                 defaultValue={service?.image}
-                                className="p-2 m-2"
+                                // className="p-2 m-2"
                                 className="p-2 m-2 w-100"
                             />
                             <br />
@@ -126,4 +126,4 @@ const Booking = () => {
     );
 };
 
-export default Booking;
+export default Purchase;

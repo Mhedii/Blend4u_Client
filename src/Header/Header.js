@@ -30,22 +30,21 @@ const Header = () => {
                             <Nav.Link href="/add">Add Services</Nav.Link> */}
 
                         </Nav>
-                        <Nav>
-                            {
-                                <Nav.Link href="/admin">Admin</Nav.Link>
-                            }
-                        </Nav>
-                        <Nav>
+
+                        {/* <Nav>
                             {
                                 <Nav.Link href="/register">Register</Nav.Link>
                             }
-                        </Nav>
+                        </Nav> */}
                         <Nav>
 
                             {
                                 user.displayName ?
                                     <div><span className="text-warning">{user.displayName}</span><button onClick={handleLogout}>Sign Out</button> </div> :
-                                    <Nav.Link href="/login">Log In</Nav.Link>
+
+                                    <Nav> <Nav.Link href="/register">Register</Nav.Link>
+                                        <Nav.Link href="/login">Log In</Nav.Link></Nav>
+
                             }
 
                         </Nav>

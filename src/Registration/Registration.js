@@ -35,6 +35,7 @@ const CustomarRegister = () => {
                     className="submit-btn btn btn-danger mt-3"
                     type="submit"
                     value="Register"
+
                 />
             </form>
         </div>

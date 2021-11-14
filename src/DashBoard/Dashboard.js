@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 
-// import "./Dashboard.css";
+import "./Dashboard.css";
 import AddServices from "../Admin/AddServices";
 import Review from "./Review";
+import Pay from "../Pay/Pay";
 import MyOrders from "../myOrders/MyOrders";
 import useFirebase from "../hooks/useFirebase";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
-import ManageServices from "../ManageServices/ManageServices";
+import ManageOrder from "../ManageOrder/ManageOrder";
+import ManageProduct from "../ManageProducts/ManageProducts";
+// import ManageServices from "../ManageServices/ManageServices";
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
@@ -26,6 +29,7 @@ const Dashboard = () => {
             });
     }, [user?.email]);
     console.log(isAdmin);
+    //`Manage All Orders`, `Add A Product`, `Make Admin`, `Manage Products` `Logout`
     return (
         <div>
             <div className="dashboard-container ">
@@ -33,44 +37,93 @@ const Dashboard = () => {
                     <div className="col-md-3 ">
                         <div className="dashboard">
                             <h5>Dashboard</h5>
-                            <Link to={`${url}`}>
-                                <li className="dashboard-menu mt-5">Book</li>
+                            {!isAdmin && (
+                                <Link to={`${url}/payment`}>
+                                    <li className="dashboard-menu mt-5">Pay</li>
+                                </Link>
+
+                            )}
+                            {!isAdmin && (
+                                <Link to={`${url}/myOrder`}>
+                                    <li className="dashboard-menu mt-5">Order list</li>
+                                </Link>
+
+                            )}
+                            {!isAdmin && (
+                                <Link to={`${url}/review`}>
+                                    <li className="dashboard-menu mt-5">Review</li>
+                                </Link>
+
+                            )}
+                            {/* <Link to={`${url}/payment`}>
+                                <li className="dashboard-menu mt-5">Pay</li>
                             </Link>
 
-                            <Link to={`${url}/BookingList`}>
-                                <li className="dashboard-menu mt-5">Booking list</li>
+                            <Link to={`${url}/myOrder`}>
+                                <li className="dashboard-menu mt-5">Order list</li>
                             </Link>
 
                             <Link to={`${url}/review`}>
                                 <li className="dashboard-menu mt-5">Review</li>
-                            </Link>
+                            </Link> */}
                             <div className="admin-dashboard">
-                                <li className="dashboard-menu mt-5">Orders list</li>
+                                {/* <li className="dashboard-menu mt-5">Orders list</li> */}
 
                                 {isAdmin && (
-                                    <Link to={`${url}/add`}>
+                                    <Link to={`${url}/addService`}>
                                         <li className="dashboard-menu">Add Service</li>
                                     </Link>
+
                                 )}
+                                {isAdmin && (
+                                    <Link to={`${url}/allOrder`}>
+                                        <li className="dashboard-menu">Manage Order</li>
+                                    </Link>
+
+
+                                )}
+                                {isAdmin && (
+                                    <Link to={`${url}/makeAdmin`}>
+                                        <li className="dashboard-menu">Make Admin</li>
+                                    </Link>
+
+                                )}
+                                {isAdmin && (
+                                    <Link to={`${url}/allProducts`}>
+                                        <li className="dashboard-menu">Manage Products</li>
+                                    </Link>
+
+                                )}
+
+                                {/* <Link to={`${url}/allOrder`}>
+                                    <li className="dashboard-menu">Manage Order</li>
+                                </Link>
                                 <Link to={`${url}/makeAdmin`}>
                                     <li className="dashboard-menu">Make Admin</li>
                                 </Link>
                                 <Link to={`${url}/manageServices`}>
                                     <li className="dashboard-menu">Manage Service</li>
-                                </Link>
+                                </Link> */}
+
                             </div>
                         </div>
                     </div>
                     <div className="col-md-9">
                         <Switch>
-                            <Route exact path={path}>
+                            {/* <Route exact path={path}>
                                 <MyOrders></MyOrders>
-                            </Route>
+                            </Route> */}
                             <Route exact path={`${path}/review`}>
                                 <Review></Review>
                             </Route>
-                            <Route exact path={`${path}/myOrders`}>
+                            <Route exact path={`${path}/myOrder`}>
                                 <MyOrders></MyOrders>
+                            </Route>
+                            {/* <Route exact path={`${path}/myOrders`}>
+                                <MyOrders></MyOrders>
+                            </Route> */}
+                            <Route exact path={`${path}/payment`}>
+                                <Pay></Pay>
                             </Route>
                             {/* </Route>
                             <Route exact path={`${path}/OrderList`}>
@@ -82,8 +135,11 @@ const Dashboard = () => {
                             <Route exact path={`${path}/addService`}>
                                 <AddServices></AddServices>
                             </Route>
-                            <Route exact path={`${path}/manageServices`}>
-                                <ManageServices></ManageServices>
+                            <Route exact path={`${path}/allOrder`}>
+                                <ManageOrder></ManageOrder>
+                            </Route>
+                            <Route exact path={`${path}/allProducts`}>
+                                <ManageProduct></ManageProduct>
                             </Route>
                         </Switch>
                     </div>

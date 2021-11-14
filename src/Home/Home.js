@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardGroup, Carousel, } from 'react-bootstrap';
 import Review from '../DashBoard/Review';
+import SeeReview from '../DashBoard/SeeReview';
 import FooterPage from '../Footer/FooterPage';
 import "../Header/Header";
 import FirstPageService from '../Services/FirstPageService';
@@ -54,7 +55,9 @@ const Home = () => {
             </div>
             <FirstPageService></FirstPageService>
             <div>
-                <h1>Reviews</h1>
+
+                <SeeReview></SeeReview>
+
             </div>
             <div className="m-5 p-5">
                 <h1>Best 3 products in this month</h1>

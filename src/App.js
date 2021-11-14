@@ -11,11 +11,13 @@ import FooterPage from './Footer/FooterPage';
 import Header from './Header/Header';
 import Login from './Login/Login';
 import Services from './Services/Services';
-
-
 import AddServices from './Admin/AddServices';
 import Dashboard from './DashBoard/Dashboard';
 import Home from './Home/Home';
+import AboutUs from './AboutUs/AboutUs';
+import NotFound from './NotFound/NotFound';
+import Purchase from './Purchase/Purchase';
+import MyOrders from './myOrders/MyOrders';
 
 function App() {
   return (
@@ -60,6 +62,20 @@ function App() {
             <Home></Home>
 
           </Route>
+          <Route path="/aboutus">
+
+            <AboutUs></AboutUs>
+          </Route>
+
+          <Route exact path="/purchasing/:serviceId">
+            <Purchase></Purchase>
+          </Route>
+          <Route exact path="/myOrder">
+            <MyOrders></MyOrders>
+          </Route>
+          <Route exact path="/*">
+            <NotFound></NotFound>
+          </Route>
           {/* <Route exact path="/home">
 
             <Home></Home>
@@ -77,25 +93,16 @@ function App() {
             <Add></Add>
 
           </Route>
-          <Route path="/aboutus">
-
-            <AboutUs></AboutUs>
-          </Route>
-          <Route exact path="/booking/:serviceId">
-            <Booking></Booking>
-          </Route>
-          <Route exact path="/myBooking">
-            <MyBooking></MyBooking>
-          </Route>
+          
+          
+          
           <Route exact path="/login">
             <Login></Login>
           </Route>
           <Route exact path="/admin">
             <AdminDashBoard></AdminDashBoard>
           </Route>
-          <Route exact path="/*">
-            <NotFound></NotFound>
-          </Route> */}
+          */}
         </Switch>
         <FooterPage></FooterPage>
       </Router>

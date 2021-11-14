@@ -9,6 +9,12 @@ const ManageOrder = () => {
     const [status, setStatus] = useState("");
     const [orderId, setOrderId] = useState("");
 
+
+    const [control, setControl] = useState(false);
+    const handleStatus = (e) => {
+        setStatus(e.target.value);
+    };
+
     console.log(status);
     useEffect(() => {
         fetch("http://localhost:5000/allOrders")
@@ -31,6 +37,27 @@ const ManageOrder = () => {
         })
             .then((res) => res.json())
             .then((result) => console.log(result));
+    };
+    const handleUpdate = (id) => {
+        fetch(`http://localhost:5000/updateStatus/${id}`, {
+            method: "PUT",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ status }),
+        });
+
+        console.log(id);
+    };
+    const handleDelete = (id) => {
+        fetch(`http://localhost:5000/deleteOrders/${id}`, {
+            method: "DELETE",
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.deletedCount) {
+                    setControl(!control);
+                }
+            });
+        console.log(id);
     };
 
     return (
@@ -56,20 +83,34 @@ const ManageOrder = () => {
                             <td>{pd.description}</td>
                             <td>{pd.image}</td>
                             <td>
-                                <form onSubmit={handleSubmit(onSubmit)}>
+
+                                <form onChange={handleStatus}>
                                     <select
-                                        onClick={() => handleOrderId(pd?._id)}
+                                        onChange={() => handleOrderId(pd?._id)}
                                         {...register("status")}
                                     >
                                         <option value={pd?.status}>{pd?.status}</option>
                                         <option value="approve">approve</option>
                                         <option value="done">Done</option>
                                     </select>
-                                    <input type="submit" />
+
                                 </form>
+                                {/* <DropdownButton id="dropdown-basic-button" title="Status" onChange={handleStatus}
+
+                                    defaultValue={pd.status}>
+                                    <Dropdown.Item value="pending">pending</Dropdown.Item>
+                                    <Dropdown.Item value="apporved">apporved</Dropdown.Item>
+
+                                </DropdownButton> */}
                             </td>
-                            <button className="btn bg-danger p-2">Delete</button>
-                            <button className="btn bg-success p-2">Update</button>
+                            <button className="btn bg-danger p-2" onClick={() => handleDelete(pd?._id)}>Delete</button>
+                            {/* <button className="btn bg-success p-2">Update</button> */}
+                            <button
+                                onClick={() => handleUpdate(pd._id)}
+                                className="btn bg-success p-2"
+                            >
+                                Update
+                            </button>
                         </tr>
                     </tbody>
                 ))}
