@@ -27,6 +27,7 @@ const Login = () => {
                         {...register("email", { required: true })}
                     />
                     <br />
+
                     <input
                         className="input-field"
                         name="password"
@@ -40,7 +41,11 @@ const Login = () => {
                         className="submit-btn btn btn-danger mt-3"
                         type="submit"
                         value="Login"
+
+
                     />
+
+
                 </form>
             </div>
             <div>Or</div>

@@ -16,10 +16,25 @@ const CustomarRegister = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input
                     className="input-field"
+                    name="displayName"
+                    placeholder="Name"
+
+                    {...register("displayName", { required: true })}
+                />
+                <br />
+                <input
+                    className="input-field"
                     name="email"
                     placeholder="Email"
                     type="email"
                     {...register("email", { required: true })}
+                />
+                <br />
+                <input
+                    className="input-field"
+                    name="phone"
+                    type="number"
+                    {...register("phone", { required: true })}
                 />
                 <br />
                 <input
