@@ -11,7 +11,7 @@ const SeeReview = () => {
 
     return (
         <div>
-            <h1>Reviews</h1>
+            <h1 className="text-primary m-5">Reviews</h1>
             <div className="services">
                 <div className="row container">
                     {reviews?.map((pd, index) => (
@@ -20,6 +20,8 @@ const SeeReview = () => {
 
                                 <h5>{pd.email}</h5>
                                 <p>{pd.comments}</p>
+                                <p>Rating: {pd.rating}</p>
+
 
 
                             </div>

@@ -24,7 +24,6 @@ function App() {
     <div className="App">
       <Router>
         <Header></Header>
-        {/* <Registration></Registration> */}
         <Switch>
 
           <Route exact path="/">
@@ -47,13 +46,11 @@ function App() {
           </Route>
           <Route path="/add">
 
-            {/* <Add></Add> */}
             <AddServices></AddServices>
 
           </Route>
           <Route path="/dashboard">
 
-            {/* <Add></Add> */}
             <Dashboard></Dashboard>
 
           </Route>
@@ -76,33 +73,6 @@ function App() {
           <Route exact path="/*">
             <NotFound></NotFound>
           </Route>
-          {/* <Route exact path="/home">
-
-            <Home></Home>
-
-          </Route>
-
-          <Route path="/services">
-
-            <Services></Services>
-
-          </Route>
-
-          <Route path="/add">
-
-            <Add></Add>
-
-          </Route>
-          
-          
-          
-          <Route exact path="/login">
-            <Login></Login>
-          </Route>
-          <Route exact path="/admin">
-            <AdminDashBoard></AdminDashBoard>
-          </Route>
-          */}
         </Switch>
         <FooterPage></FooterPage>
       </Router>

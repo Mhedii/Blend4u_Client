@@ -21,7 +21,7 @@ const Home = () => {
                             src="https://www.rangsindustries.com/wp-content/uploads/2020/07/HL7701.jpg"
                             alt="First slide"
                         />
-                        <Carousel.Caption className="text-warning">
+                        <Carousel.Caption className="text-danger">
                             <h3>Phillips</h3>
                             <p>Very cheap rate better services</p>
                         </Carousel.Caption>
@@ -33,7 +33,7 @@ const Home = () => {
                             alt="Second slide"
                         />
 
-                        <Carousel.Caption className="text-warning">
+                        <Carousel.Caption className="text-danger">
                             <h3>Phillips</h3>
                             <p>Best Service</p>
                         </Carousel.Caption>
@@ -45,7 +45,7 @@ const Home = () => {
                             alt="Third slide"
                         />
 
-                        <Carousel.Caption className="text-warning">
+                        <Carousel.Caption className="text-danger">
                             <h3>Phillips</h3>
                             <p>Low cost better service</p>
                         </Carousel.Caption>
