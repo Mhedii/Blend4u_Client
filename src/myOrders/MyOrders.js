@@ -7,7 +7,7 @@ const MyOrders = () => {
     const [control, setControl] = useState(false);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrder/${Email}`)
+        fetch(`https://blend4u.herokuapp.com/myOrder/${Email}`)
             .then((res) => res.json())
             .then((data) => setServices(data));
         // .then((data) => console.log(data));
@@ -16,7 +16,7 @@ const MyOrders = () => {
 
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/deleteOrders/${id}`, {
+        fetch(`https://blend4u.herokuapp.com/deleteOrders/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())

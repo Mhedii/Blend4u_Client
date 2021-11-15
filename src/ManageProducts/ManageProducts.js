@@ -17,14 +17,14 @@ const ManageProduct = () => {
 
     console.log(status);
     useEffect(() => {
-        fetch("http://localhost:5000/allProducts")
+        fetch("https://blend4u.herokuapp.com/allProducts")
             .then((res) => res.json())
             .then((data) => setOrders(data));
     }, []);
 
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/deleteProducts/${id}`, {
+        fetch(`https://blend4u.herokuapp.com/deleteProducts/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())

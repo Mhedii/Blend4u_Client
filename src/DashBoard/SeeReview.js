@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const SeeReview = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/seeReview")
+        fetch("https://blend4u.herokuapp.com/seeReview")
             .then((res) => res.json())
             .then((data) => setReviews(data));
     }, []);

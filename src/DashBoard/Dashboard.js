@@ -18,7 +18,7 @@ const Dashboard = () => {
     const [isAdmin, setisAdmin] = useState(false);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/checkAdmin/${user?.email}`)
+        fetch(`https://blend4u.herokuapp.com/checkAdmin/${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
                 if (data[0]?.role === "admin") {

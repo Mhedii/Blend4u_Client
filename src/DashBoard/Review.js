@@ -6,7 +6,7 @@ const Review = () => {
     const { register, handleSubmit, watch, errors } = useForm();
     const { user } = useFirebase();
     const onSubmit = (data) => {
-        fetch("http://localhost:5000/addSReview", {
+        fetch("https://blend4u.herokuapp.com/addSReview", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

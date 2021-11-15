@@ -65,7 +65,7 @@ const useFirebase = () => {
     };
 
     const hanldeUserInfoRegister = (email) => {
-        fetch("http://localhost:5000/addUserInfo", {
+        fetch("https://blend4u.herokuapp.com/addUserInfo", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ email }),
